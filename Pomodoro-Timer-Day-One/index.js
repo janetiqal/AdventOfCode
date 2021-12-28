@@ -52,6 +52,8 @@ function stopTimer(){
     timeRunning= false;
     console.log('timer stopped')
     startBtn.innerHTML="Start"
+    //pauses the timer
+    clearInterval(timer)
 }
 
 function timerDone(){
