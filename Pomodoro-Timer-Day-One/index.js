@@ -60,3 +60,13 @@ function timerDone(){
     clearInterval(timer);
     console.log('clear the timer')
 }
+
+//add event listenter to the setttings button to allow users to modify the timer
+settingsBtn.addEventListener('click', ()=>{
+    console.log('edit btn')
+    //if timer is running pause it
+    if(timeRunning){
+        stopTimer()
+    }
+})
+
