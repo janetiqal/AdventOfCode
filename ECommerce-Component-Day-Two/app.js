@@ -1,4 +1,4 @@
-
+const menu = document.querySelector('ul.menu')
 
 const menuItems = [
     {
@@ -46,5 +46,22 @@ const menuItems = [
 ]
 
 //To Do
+
 //render menu dynamically using JS not static html
+function renderMenu(){
+    const menuItemsString = menuItems.map((item)=>{
+        return ` <li>
+        <div class="plate">
+          <img src="images/${item.image}" alt="${item.alt}" class="plate" />
+        </div>
+        <div class="content">
+          <p class="menu-item">${item.name}</p>
+          <p class="price">${item.price}</p>
+          <button class="add" onClick=(console.log("click"))>Add to Cart</button>
+        </div>
+      </li>`
+    })
+    menu.innerHTML= menuItemsString
+}
     // same for cart items
+renderMenu()
