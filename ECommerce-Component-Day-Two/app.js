@@ -1,3 +1,5 @@
+
+
 const menuItems = [
     {
         name: 'French Fries with Ketchup',
@@ -42,3 +44,7 @@ const menuItems = [
         count: 0
     }
 ]
+
+//To Do
+//render menu dynamically using JS not static html
+    // same for cart items
