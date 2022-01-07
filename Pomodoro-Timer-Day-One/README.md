@@ -1,4 +1,4 @@
-# Day One of the Advent of Code Challenge
+# Day One of the Advent of JavaScript Challenge
 
 ## Pomodoro Time
 
