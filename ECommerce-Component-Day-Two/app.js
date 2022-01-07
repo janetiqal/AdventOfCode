@@ -50,13 +50,19 @@ const menuItems = [
 //render menu dynamically using JS not static html
 function renderMenu(){
     const menuItemsString = menuItems.map((item)=>{
+        //toFixed returns a string but using the urnary operator makes it a Number
+        const dollars = +((item.price /100).toFixed(2))
+        // const dollars = Math.floor(item.price/100)
+        // console.log(typeof dollars)
+        // const cents = (item.price % 100)
+        // console.log(dollars, cents)
         return ` <li>
         <div class="plate">
           <img src="images/${item.image}" alt="${item.alt}" class="plate" />
         </div>
         <div class="content">
           <p class="menu-item">${item.name}</p>
-          <p class="price">${item.price}</p>
+          <p class="price">$${dollars}</p>
           <button class="add" onClick=(console.log("click"))>Add to Cart</button>
         </div>
       </li>`
