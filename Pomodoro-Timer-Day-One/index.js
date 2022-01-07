@@ -8,6 +8,8 @@ const ring = document.querySelector('.ring')
 let startTime= 0;
 let timeRunning = false;
 let timer;
+let originalMinutes = 0;
+let originalSeconds = 0;
 
 //start btn will either start or stop the timer
 startBtn.addEventListener('click',()=>{
@@ -76,10 +78,16 @@ function timerDone(){
 
 //Reset the timer
 function resetTimer(){
-    //TO DO
 //remove the classname ending to the ring
+ring.classList.remove('ending')
 //reset the values of the minutes and seconds
+console.log('seconds' ,seconds.value)
+console.log('min' , minutes.value)
+
+    seconds.value = originalSeconds;
+    minutes.value = originalMinutes;
 }
+
 //add event listenter to the setttings button to allow users to modify the timer
 settingsBtn.addEventListener('click', ()=>{
     console.log('edit btn')
@@ -100,3 +108,12 @@ const validateTimeInput = (e) => {
 
 minutes.addEventListener('keyup', validateTimeInput);
 seconds.addEventListener('keyup', validateTimeInput);
+
+const resetOriginalTime = () => {
+    console.log(minutes.value)
+    originalMinutes = parseInt(minutes.value);
+    originalSeconds = parseInt(seconds.value);
+}
+resetOriginalTime()
+//calling reset timer to give me the updated timer of 15 min
+resetTimer();
