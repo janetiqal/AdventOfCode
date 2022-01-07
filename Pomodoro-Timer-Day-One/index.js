@@ -112,7 +112,8 @@ seconds.addEventListener('keyup', validateTimeInput);
 const resetOriginalTime = () => {
     console.log(minutes.value)
     originalMinutes = parseInt(minutes.value);
-    originalSeconds = parseInt(seconds.value);
+    //using parseInt set the value to 0, which is fine but I think the double 0's look better at reset,i.e 00
+    originalSeconds = seconds.value;
 }
 resetOriginalTime()
 //calling reset timer to give me the updated timer of 15 min
