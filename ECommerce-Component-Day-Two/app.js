@@ -1,6 +1,9 @@
 const menu = document.querySelector('ul.menu')
 const cart = document.querySelector('.cart-summary')
-
+const subTotal = document.querySelector('.subtotal')
+const taxTotal = document.querySelector('.tax')
+const finalTotal = document.querySelector('.total')
+console.log(subTotal, taxTotal, finalTotal)
 const menuItems = [
     {
         name: 'French Fries with Ketchup',
@@ -46,7 +49,6 @@ const menuItems = [
     }
 ]
 
-//To Do
 
 //render menu dynamically using JS not static html
 const renderMenu = () => {
@@ -105,14 +107,32 @@ const renderCart = () => {
         </button>
       </div>
         <div class="subtotal">
-          $${dollars}
+          $${totalDollars}
         </div>
       </li> `
     }
     ).join('')
-    cart.innerHTML = cartItemsString;
-    console.log(cart)
-    
+    cart.innerHTML = cartItemsString;    
+    //using the reduce method to add all the items in the menuItems array
+    const subtotalPrice = menuItems.reduce((acc, item, arr, index) => {
+         console.log(item)
+         console.log('acc',acc)
+        return  acc + item.price * item.count;
+    }, 0)
+        //subTotal of entire cart totalled & formatted
+    subTotal.innerHTML=dollarAmt(subtotalPrice)
+
+
+    //Tax Calculation - Tax is based on the state of Chicago sales tax: 10.25%
+    var taxCalculation = +(((subtotalPrice /100) *0.1025).toFixed(2))
+    console.log(taxCalculation)
+    taxTotal.innerHTML= taxCalculation
+ 
+}
+
+//formatted Dollar Amounts
+const dollarAmt = (amt)=>{
+return `$${+((amt /100).toFixed(2))}`
 }
 
 const decreaseCountOfItem = (i) => {
