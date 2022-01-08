@@ -7,3 +7,6 @@ From December 1st to December 24th, a new challenge is released that outlines a 
 I hope to keep my JS skills sharp by completing each of these challenges.
 
 Link to the wesbite, https://www.adventofjs.com/. 
+
+Day One: Pomodoro Timer
+Day Two: E-Commerce Component

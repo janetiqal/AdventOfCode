@@ -9,4 +9,4 @@ In this project, we're creating an eCommerce component.
 - When products are in your cart, you should be able to increase and decrease the quantity.
   - A user should not be able to mark the quantity as a negative number.
   - If the quantity goes down to 0, the user will have the option to delete or remove the product for their cart entirely.
-- Tax is based on the state of Tennessee sales tax: `0.0975`
+- Tax is based on Chicago's sales tax of 10.25%
