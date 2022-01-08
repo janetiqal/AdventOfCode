@@ -3,7 +3,6 @@ const cart = document.querySelector('.cart-summary')
 const subTotal = document.querySelector('.subtotal')
 const taxTotal = document.querySelector('.tax')
 const finalTotal = document.querySelector('.total')
-console.log(subTotal, taxTotal, finalTotal)
 const menuItems = [
     {
         name: 'French Fries with Ketchup',
@@ -55,10 +54,7 @@ const renderMenu = () => {
     const menuItemsString = menuItems.map((item, index) => {
         //toFixed returns a string but using the urnary operator makes it a Number
         const dollars = +((item.price / 100).toFixed(2))
-        // console.log(typeof dollars)
-        // const dollars = Math.floor(item.price/100)
-        // const cents = (item.price % 100)
-        // console.log(dollars, cents)
+        const otherD= item.price/100
 
         //check to see if item is in the cart already, if so change the add to cart button to In Cart Btn
         const inCart = item.count > 0
@@ -122,17 +118,22 @@ const renderCart = () => {
         //subTotal of entire cart totalled & formatted
     subTotal.innerHTML=dollarAmt(subtotalPrice)
 
-
     //Tax Calculation - Tax is based on the state of Chicago sales tax: 10.25%
     var taxCalculation = +(((subtotalPrice /100) *0.1025).toFixed(2))
     console.log(taxCalculation)
     taxTotal.innerHTML= taxCalculation
+
+    const subTotalFormated = dollarAmt(subtotalPrice)
+    console.log(subTotalFormated + taxCalculation)
+    let total = subTotalFormated + taxCalculation
+    
+    finalTotal.innerHTML= Math.round((total*100))/100
  
 }
 
 //formatted Dollar Amounts
 const dollarAmt = (amt)=>{
-return `$${+((amt /100).toFixed(2))}`
+return +((amt /100).toFixed(2))
 }
 
 const decreaseCountOfItem = (i) => {
