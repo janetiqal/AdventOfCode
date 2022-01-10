@@ -8,5 +8,7 @@ I hope to keep my JS skills sharp by completing each of these challenges.
 
 Link to the wesbite, https://www.adventofjs.com/. 
 
-Day One: Pomodoro Timer
-Day Two: E-Commerce Component
+* Day One: Pomodoro Timer
+* Day Two: E-Commerce Component
+* Day Three: Keyboard/Piano Audio on key press
+* Day Four: Computer Keyboard Game "Eyes on The Screen"
