@@ -1,6 +1,6 @@
 # Brief
 
-In this project, I was asked to create a keyboard. The CSS and HTML was already provided, I made it functional using JS.
+In this project, I was asked to create a piano keyboard. The CSS and HTML was already provided, I made it functional using JS.
 
 **Users should be able to:**
 
