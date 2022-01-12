@@ -16,7 +16,10 @@ body {
   border-radius: 50px;
   position: relative;
 }
-
+.red{
+  background-color: red;
+  color:yellow;
+}
 h1 {
   color: #60C1B6;
   font-family: 'Inter', sans-serif;

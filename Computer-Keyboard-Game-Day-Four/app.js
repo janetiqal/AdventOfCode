@@ -23,17 +23,21 @@ function checkKeyPressed(keyPressed){
 
 //create a function that chooses a random key, and adds the jiggle class to it and removes the class from the previous jiggling key
 function setRandomKey(){
-    var randomIndex = Math.floor(Math.random() * keys.length)
-    
-    //removing prev jiggling key is NOT WORKING
-    if(currentKey){
-        keyboardBtns[randomIndex].classList.remove('jiggle')
-    }
+
     //create a random index based on the length of the keys array and create a random key based on that random index
     var randomIndex = Math.floor(Math.random() * keys.length)
     currentKey= keys[randomIndex]
     //adding the class jiggle to the new random key
-    keyboardBtns[randomIndex].classList.add('jiggle')
+        // keyboardBtns[randomIndex].classList.add('jiggle')
+
+    //looping over the keyboardBtns and adding class jiggle to the currentKey, else removing it... not as efficient as can be though.  
+    for(let i =0; i < keyboardBtns.length; i++){
+        if(keyboardBtns[i].dataset.key=== currentKey){
+            keyboardBtns[i].classList.add('jiggle')
+        }else{
+            keyboardBtns[i].classList.remove('jiggle')
+        }
+    }
 };
 
 
