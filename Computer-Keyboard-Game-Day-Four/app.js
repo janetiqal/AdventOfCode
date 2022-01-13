@@ -5,7 +5,7 @@ console.log(keyboardBtns)
 const keys = keyboardBtns.map(keyButton => keyButton.dataset.key);
 
 
-// Mapping the value of the key with the button so I do not have to loop over every button when I want to remove or add the jiggle class to the current random key.. SEE Line 50 for previous working solution
+// Mapping the value of the key with the button so I do not have to loop over every button when I want to remove or add the jiggle class to the current random key.. SEE Line 57 for previous working solution
 const keyToButton = keyboardBtns.reduce((acc, cur)=>{
     //cur is the button, curKey is the key value of that btn
     const curKey = cur.dataset.key
@@ -22,6 +22,15 @@ document.body.addEventListener('keyup',(e)=>{
     checkKeyPressed(pressedKey)
 });
 
+//added functionality for clicking the jiggling key instead of typing
+keyboardBtns.forEach((key)=>{
+    console.log(key)
+    key.addEventListener('click',(e)=>{
+        const clickedKey =e.target.dataset.key
+        checkKeyPressed(clickedKey)
+    })
+})
+
 //create a function that checks if the pressed key is === to the jiggling key
 function checkKeyPressed(keyPressed){
     if(currentKey === keyPressed.toUpperCase() ){
@@ -34,7 +43,6 @@ function checkKeyPressed(keyPressed){
 function setRandomKey(){
     if(currentKey){
         //keytoButton is an object
-        console.log(typeof keyToButton)
         keyToButton[currentKey].classList.remove('jiggle')
     }
 
