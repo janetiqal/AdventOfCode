@@ -1,3 +1,4 @@
+const episodeSection = document.querySelector('ul.episodes')
 const episodes = [
   {
     'id': 1,
@@ -148,3 +149,20 @@ const episodes = [
     'name': 'Building a Course'
   }
 ];
+
+// Render the list of episodes dynamically from the data instead of hardcoding
+const renderEpisodes =()=>{
+  const htmlString = episodes.map( episode=>{
+    return `
+     <li>
+    <label for="episode-${episode.id}">
+    <input type="checkbox" name="episode-${episode.id}" id="episode-${episode.id}" />
+         <span>${episode.id} || ${episode.name}</spa>
+    </label>
+  </li> `
+  }).join('');
+  episodeSection.innerHTML= htmlString;
+}
+
+
+renderEpisodes();
