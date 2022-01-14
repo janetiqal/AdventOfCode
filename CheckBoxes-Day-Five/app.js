@@ -172,13 +172,15 @@ const renderEpisodes =()=>{
     return `
      <li>
     <label for="episode-${episode.id}">
-    <input type="checkbox" name="episode-${episode.id}" id="episode-${episode.id}" />
+    <input type="checkbox" name="episode-${episode.id}" id="episode-${episode.id}" onClick="handleCheckBoxClick(${episode.id})"/>
          <span>${episode.id} || ${episode.name}</spa>
     </label>
   </li> `
   }).join('');
   episodeSection.innerHTML= htmlString;
 }
-
+const handleCheckBoxClick= (e)=>{
+  console.log('e', e)
+}
 
 renderEpisodes();
