@@ -1,4 +1,5 @@
 const episodeSection = document.querySelector('ul.episodes')
+const body= document.querySelector('body')
 const episodes = [
   {
     'id': 1,
@@ -150,6 +151,21 @@ const episodes = [
   }
 ];
 
+let shiftIsOn= false
+//adding event listeners for key presses on Shift btn
+body.addEventListener('keyup',(e)=>{
+  if(e.key ==='Shift'){
+    shiftIsOn = false
+    console.log('shift is not being pressed')
+  }
+})
+
+body.addEventListener('keydown',(e)=>{
+  if(e.key ==='Shift'){
+    shiftIsOn = true
+    console.log('shift IS being pressed')
+  }
+})
 // Render the list of episodes dynamically from the data instead of hardcoding
 const renderEpisodes =()=>{
   const htmlString = episodes.map( episode=>{
