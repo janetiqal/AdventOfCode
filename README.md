@@ -12,4 +12,5 @@ Link to the wesbite, https://www.adventofjs.com/.
 * Day Two: E-Commerce Component
 * Day Three: Keyboard/Piano Audio on key press
 * Day Four: Computer Keyboard Game "Eyes on The Screen"
-* Day Five: Selecting Multiple Check Boxes
+* Day Five: Selecting Multiple Check Boxes (Shift + click)
+* Day Six: Range Slider, moving the slider to the right or left should increase or decrease the dollar amount
