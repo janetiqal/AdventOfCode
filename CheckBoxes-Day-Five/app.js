@@ -152,6 +152,9 @@ const episodes = [
 ];
 
 let shiftIsOn= false
+let firstEpisodeSelected = null;
+const checkedBoxes ={};
+
 //adding event listeners for key presses on Shift btn
 body.addEventListener('keyup',(e)=>{
   if(e.key ==='Shift'){
@@ -169,18 +172,43 @@ body.addEventListener('keydown',(e)=>{
 // Render the list of episodes dynamically from the data instead of hardcoding
 const renderEpisodes =()=>{
   const htmlString = episodes.map( episode=>{
+    //this overwrites HTML default behavior, writing checked in the input attribute checks the checkbox, so we need to dynamically create 'checked' when our user clicks on a checkbox while holding down shift.
+    const isChecked = checkedBoxes[episode.id]; 
+    const checkedString = isChecked ? 'checked' : '';
+    console.log(isChecked, checkedString)
     return `
      <li>
     <label for="episode-${episode.id}">
-    <input type="checkbox" name="episode-${episode.id}" id="episode-${episode.id}" onClick="handleCheckBoxClick(${episode.id})"/>
+    <input ${checkedString} type="checkbox" name="episode-${episode.id}" id="episode-${episode.id}" onClick="handleCheckBoxClick(event,${episode.id})" />
          <span>${episode.id} || ${episode.name}</spa>
     </label>
   </li> `
   }).join('');
-  episodeSection.innerHTML= htmlString;
+  episodeSection.innerHTML= htmlString;  
 }
-const handleCheckBoxClick= (e)=>{
-  console.log('e', e)
+//To Do: if the shift key is being pressed, need to know the first episode click, and the last and  then mark everything between the first clicked and the last as checked.
+const handleCheckBoxClick= (e, index)=>{
+  if(firstEpisodeSelected && shiftIsOn) {
+    if(firstEpisodeSelected < index){
+      for(let i=firstEpisodeSelected; i<=index; i++){
+        console.log('first then index', firstEpisodeSelected, index)
+        //added the 'checked' statement 
+        checkedBoxes[i]= true;
+      }
+    }else{
+      //just in case user selects epise 10 and then episode 4
+      for(let i=index; i <=firstEpisodeSelected; i++){
+        checkedBoxes[i]= true
+      }
+    }
+    }else{
+      //toggling between 'checked' true and false, so if its false its now true and vice versa
+      checkedBoxes[index] = !checkedBoxes[index];
+    }
+    //updating the first episode with the one we've clicked on 
+    firstEpisodeSelected= index;
+    renderEpisodes();
 }
+
 
 renderEpisodes();
