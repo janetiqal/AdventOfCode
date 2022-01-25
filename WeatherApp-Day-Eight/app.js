@@ -16,3 +16,18 @@ const iconNameToSizeMap = {
     'partly-cloudy': {width: 230, height:209},
     rainy: { width: 160, height: 222},
 }
+const lat = '32.7157'
+const lon ='117.61'
+const apiKey='6845bd9653c312c4a4d4b0a988d5d986'
+
+const getWeatherData= async ()=>{
+    try{
+        const response =await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}`)
+        const data = await response.json()
+        console.log(data);
+    }
+    catch(error){
+        console.log(error)
+    }
+}
+  getWeatherData()
