@@ -1,3 +1,8 @@
+const featuredPic = document.querySelector('.feature >img');
+console.log(featuredPic);
+const caption = document.querySelector('.caption');
+console.log(caption);
+
 const content = [
   {
     'image': 'dave-hoefler-okUIdo6NxGo-unsplash.jpg',
