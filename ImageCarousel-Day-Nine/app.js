@@ -61,7 +61,8 @@ const thumbnailRender = ()=>{
     return`
     <li class ="${selectedText}">
     <a href="#">
-      <img src="./images/${image.image}" alt="${image.caption}">
+      <img src="./images/${image.image}" alt="${image.caption}" onClick="selectImage(${i})"
+      >
     </a>
   </li>
     `
@@ -105,6 +106,13 @@ updateFeature= ()=>{
   caption.innerText = `${content[selectedIndex].caption}`;
 }
 
+const selectImage= (i)=>{
+  selectedIndex= i;
+  // updateFeature();
+//call thumbnail render to stay consistent w the UI border applied to the thumbnail if its the selected image 
+  thumbnailRender();
 
+
+}
 updateFeature();
 thumbnailRender();
