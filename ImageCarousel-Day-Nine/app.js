@@ -2,7 +2,12 @@ const featuredPic = document.querySelector('.feature >img');
 console.log(featuredPic);
 const caption = document.querySelector('.caption');
 console.log(caption);
+const thumbNail =document.querySelector('.thumbnails >ul');
+const leftBtn = document.querySelector('.left');
+const rightBtn = document.querySelector('.right');
 
+
+let selectedIndex=0;
 const content = [
   {
     'image': 'dave-hoefler-okUIdo6NxGo-unsplash.jpg',
@@ -49,3 +54,24 @@ const content = [
     'caption': 'Photo by Sonya Romanovska on Unsplash'
   },
 ]
+
+const thumbnailRender = ()=>{
+  const thumbNailHTML = content.map((image, i)=>{
+    const selectedText = selectedIndex === i ? 'selected' : "";
+
+    return`
+    <li class ="${selectedText}">
+    <a href="#">
+      <img src="./images/${image.image}" alt="${image.caption}">
+    </a>
+  </li>
+    `
+  }).join("");
+  thumbNail.innerHTML=thumbNailHTML;
+}
+
+
+
+
+
+thumbnailRender();
