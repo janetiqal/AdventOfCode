@@ -67,9 +67,32 @@ const thumbnailRender = ()=>{
   </li>
     `
   }).join("");
+  console.log(selectedIndex)
   thumbNail.innerHTML=thumbNailHTML;
 }
 
+leftBtn.addEventListener("click", ()=>{
+  //wrapping the content so we dont go to -1
+  if(selectedIndex==0){
+    selectedIndex=  content.length-1;
+  }else{
+    selectedIndex--;
+  }
+  console.log(selectedIndex)
+  thumbnailRender();
+})
+
+rightBtn.addEventListener("click", ()=>{
+  //if right toggling but at the end of list go to first item in list
+  if(selectedIndex== content.length-1){
+    selectedIndex=  0;
+  }else{
+    selectedIndex++;
+  }
+  console.log(selectedIndex);
+  thumbnailRender();
+
+})
 
 
 
