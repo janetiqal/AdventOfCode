@@ -5,8 +5,7 @@ console.log(caption);
 const thumbNail =document.querySelector('.thumbnails >ul');
 const leftBtn = document.querySelector('.left');
 const rightBtn = document.querySelector('.right');
-
-
+//keeping track of index
 let selectedIndex=0;
 const content = [
   {
@@ -67,8 +66,11 @@ const thumbnailRender = ()=>{
   </li>
     `
   }).join("");
-  console.log(selectedIndex)
+  console.log(selectedIndex);
   thumbNail.innerHTML=thumbNailHTML;
+
+  updateFeature();
+
 }
 
 leftBtn.addEventListener("click", ()=>{
@@ -80,6 +82,8 @@ leftBtn.addEventListener("click", ()=>{
   }
   console.log(selectedIndex)
   thumbnailRender();
+  // updateFeature();
+
 })
 
 rightBtn.addEventListener("click", ()=>{
@@ -91,10 +95,16 @@ rightBtn.addEventListener("click", ()=>{
   }
   console.log(selectedIndex);
   thumbnailRender();
+  // updateFeature();
 
 })
 
+updateFeature= ()=>{
+  featuredPic.src = `./images/${content[selectedIndex].image}`;
+  featuredPic.alt =  `${content[selectedIndex].caption}`;
+  caption.innerText = `${content[selectedIndex].caption}`;
+}
 
 
-
+updateFeature();
 thumbnailRender();
